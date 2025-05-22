@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeVision 4K</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .banner {
+            position: relative;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .banner img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px 40px;
+            border-radius: 15px;
+            color: white;
+            font-size: 2em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+        }
+        .anime-list {
+            margin: 30px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            width: 200px;
+            text-decoration: none;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: white;
+            transition: transform 0.2s;
+        }
+        .card img {
+            width: 100%;
+            display: block;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .anime-names {
+            margin: 20px 0;
+            font-weight: 700;
+            text-align: center;
+        }
+        .anime-columns {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .anime-block {
+            display: flex;
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            align-items: flex-start;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+        }
+        .anime-img {
+            width: 300px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .anime-info {
+		flex: 1;
+		min-width: 300px;
+		font-size: 1.1em;
+		line-height: 1.6; 
+		}
+
+        .title-original {
+            color: darkgreen;
+            font-size: 2em;
+            margin-bottom: 5px;
+        }
+        .title-local {
+            font-size: 1.2em;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .info ul {
+            padding: 10;
+            margin: 0 0 20px 0;
+        }
+        .info li {
+            margin-bottom: 8px;
+        }
+        .description {
+            display: none;
+            margin-top: 20px;
+            padding-right: 20px;
+			line-height: 1.5;
+        }
+        .show-more {
+            background-color: darkgreen;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+		.anime-table-title {
+		  text-align: center;
+		  margin-top: 50px;
+		  font-family: 'Montserrat', sans-serif;
+		}
+
+		.anime-table {
+		  width: 80%;
+		  margin: 20px auto;
+		  border-collapse: collapse;
+		  font-family: 'Montserrat', sans-serif;
+		  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		  border-radius: 12px;
+		  overflow: hidden;
+
+		  th, td {
+			padding: 10px;
+			border: 1px solid #ddd;
+			text-align: center;
+		  }
+
+		  th {
+			background-color: darkgreen;
+			color: white;
+		  }
+
+		  tr:nth-child(even) {
+			background-color: #f9f9f9;
+		  }
+
+		  tr:nth-child(odd):not(:first-child):not(:nth-child(2)) {
+			background-color: #ffffff;
+		  }
+
+		  tr:hover {
+			background-color: #f1f1f1;
+		  }
+		}
+
+		.link-map {
+		  text-align: center;
+		  margin-top: 50px;
+		  font-family: 'Montserrat', sans-serif;
+
+		  h2 {
+			margin-bottom: 20px;
+		  }
+
+		  .link-map-container {
+			position: relative;
+			display: inline-block;
+		  }
+
+		  .cassette-bg {
+			width: 100%;
+			max-width: 1000px;
+			border-radius: 12px;
+		  }
+
+		  .anime-banner {
+		  position: absolute;
+		  cursor: pointer;
+		  transition: transform 0.3s ease;
+		  padding: 8px; 
+
+		  background: rgba(255, 255, 255, 0.7); 
+		  border-radius: 12px; 
+		  box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+
+		  &:hover {
+			transform: scale(1.1);
+		  }
+
+		  img {
+			width: 120px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+			display: block;
+		  }
+		}
+
+
+		  .banner1 {
+			top: 40%;
+			left: 4%;
+		  }
+
+		  .banner2 {
+			top: 45%;
+			left: 29%;
+		  }
+
+		  .banner3 {
+			top: 43%;
+			left: 53%;
+		  }
+		  
+		  .banner4 {
+			top: 40%;
+			left: 78%;
+		  }
+		}
+
+	.site-footer {
+	  background-color: darkgreen;
+	  color: #fff;
+	  text-align: center;
+	  padding: 20px 0;
+	  margin-top: 40px;
+	  font-size: 0.9em;
+	  border-top-left-radius: 12px;
+	  border-top-right-radius: 12px;
+	}
+
+	.site-footer p {
+	  margin: 0;
+	}
+
+	.cards-with-names {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+	}
+
+	.card-with-name {
+		width: 200px;
+		text-align: center;
+	}
+
+	.card-with-name img {
+		width: 100%;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+		transition: transform 0.2s;
+	}
+
+	.card-with-name img:hover {
+		transform: scale(1.05);
+	}
+
+	.anime-name {
+		margin-top: 10px;
+		font-weight: 700;
+	}
+
+	.anime-name a {
+		text-decoration: none;
+		color: #333;
+		transition: color 0.3s;
+	}
+
+	.anime-name a:hover {
+		color: darkgreen;
+	}
+	
+	.quiz-container {
+	  max-width: 700px;
+	  margin: 40px auto;
+	  font-family: 'Montserrat', sans-serif;
+	  background: #fff;
+	  padding: 30px;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	}
+	.quiz-container h2 {
+	  margin-bottom: 20px;
+	  color: darkgreen;
+	}
+	.question {
+	  margin-bottom: 20px;
+	}
+	.question p {
+	  font-weight: 600;
+	}
+	.question label {
+	  display: block;
+	  margin: 5px 0;
+	  cursor: pointer;
+	}
+	button {
+	  margin-top: 20px;
+	  background-color: darkgreen;
+	  color: white;
+	  border: none;
+	  padding: 10px 25px;
+	  font-size: 1em;
+	  border-radius: 6px;
+	  cursor: pointer;
+	}
+	.result {
+	  margin-top: 20px;
+	  font-size: 1.1em;
+	  font-weight: bold;
+	}
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="media/banner.jpg" alt="Banner">
+        <div class="banner-text">Твої улюблені аніме<br>тепер у 4K якості</div>
+    </div>
+
+    <div class="anime-list">Наразі для перегляду доступні такі аніме:</div>
+
+    <div class="cards-with-names">
+    <div class="card-with-name">
+        <a href="https://www.youtube.com/watch?v=khisuMfPG4M&ab_channel=keks" target="_blank">
+            <img src="media/tokyoghoul.jpg" alt="Tokyo Ghoul">
+        </a>
+        <div class="anime-name">
+            <a href="https://www.youtube.com/watch?v=khisuMfPG4M&ab_channel=keks" target="_blank">Tokyo Ghoul</a>
+        </div>
+    </div>
+    <div class="card-with-name">
+        <a href="notavailable.html" target="_blank">
+            <img src="media/aot.jpg" alt="Attack on Titan">
+        </a>
+        <div class="anime-name">
+            <a href="notavailable.html" target="_blank">Attack on Titan</a>
+        </div>
+    </div>
+    <div class="card-with-name">
+        <a href="notavailable.html" target="_blank">
+            <img src="media/demonslayer.jpg" alt="Demon Slayer">
+        </a>
+        <div class="anime-name">
+            <a href="notavailable.html" target="_blank">Demon Slayer</a>
+        </div>
+    </div>
+    <div class="card-with-name">
+        <a href="notavailable.html" target="_blank">
+            <img src="media/86.png" alt="86">
+        </a>
+        <div class="anime-name">
+            <a href="notavailable.html" target="_blank">86</a>
+        </div>
+    </div>
+</div>
+
+    <div class="anime-columns">
+
+        <!-- Tokyo Ghoul -->
+        <div id="tokyoghoul" class="anime-block">
+            <img src="media/tokyoghoul.jpg" alt="Tokyo Ghoul" class="anime-img">
+            <div class="anime-info">
+                <div class="title-original">Tokyo Ghoul</div>
+                <div class="title-local">Токійський гуль</div>
+                <div class="info">
+				<ol>
+					<li>Тип: TV Серіал</li>
+					<li>Кількість сезонів: 4</li>
+					<li>Епізоди: 48</li>
+					<li>Тривалість епізоду: 24 хв.</li>
+					<li>Публікація: 8 вересня 2011 р.</li>
+					<li>Жанри: Сейнен, Екшн, Фентезі, Жахи, Трилер</li>
+					<li>Тематика: Жорстокість, Психологічне, Міське фентезі</li>
+				</ol>
+			</div>
+                <button class="show-more" onclick="toggleDescription('description1', this)">Показати більше ▼</button>
+                <div class="description" id="description1">
+                    Японія, альтернативна реальність. У цьому світі паралельно з людьми існує раса гуль — створінь, що стоять вище людей у харчовому ланцюзі, тобто людоїдів. Тим не менш, людям вдається співіснувати з ними в відносному мирі, однак сутички час від часу трапляються. Під таку роздачу потрапляє звичайний школяр Канекі, який стає жертвою могутньої жінки-гулю. Чудом переживши напад, Канекі дізнається, що замість втрачених людських органів йому пересадили органи гуля. Хто ж він тепер — людина чи гуль? Йому доведеться пройти довгий шлях самовизначення і знайти своє місце в світі.
+					<br> </br>
+					Екранізація зробила мангу «Токійський Гуль» ще більш популярною, аніме стало хітом 2014 року, вибухнувши в Інтернеті та заслуживши інтерес до пригод юнака-полугуля серед величезної публіки.	
+                </div>
+            </div>
+        </div>
+
+        <!-- Attack on Titan -->
+        <div id="aot" class="anime-block">
+            <img src="media/aot.jpg" alt="Attack on Titan" class="anime-img">
+            <div class="anime-info">
+                <div class="title-original">Attack on Titan</div>
+                <div class="title-local">Атака Титанів</div>
+                <div class="info">
+                    <ul>
+                        <li>Тип: TV Серіал</li>
+                        <li>Кількість сезонів: 4</li>
+                        <li>Епізоди: 87</li>
+                        <li>Тривалість епізоду: 24 хв.</li>
+                        <li>Публікація: 7 квітня 2013 р.</li>
+                        <li>Жанри: Екшн, Драма, Фентезі</li>
+                        <li>Тематика: Війна, Виживання, Монстри</li>
+                    </ul>
+                </div>
+                <button class="show-more" onclick="toggleDescription('description2', this)">Показати більше ▼</button>
+                <div class="description" id="description2">
+                    Загнане в кут людство доживає свої останні дні під гнітом титанів — таємничих створінь, які тероризують людську расу. Виживші тісняться за стінами великого поселення з власним урядом, що є останнім оплотом централізованої влади у світі. Тут же живе юнак на ім'я Ерен, проводячи дитинство в відносній безпеці, поки не трапляється подія, що перевершує всі очікування: титани прориваються в місто, знищуючи все на своєму шляху. Після вторгнення велетнів Ерен стає сиротою і клянеться знищити всіх титанів до останнього. На шляху до своєї мети він і його друзі вступають до загону розвідки, що займається вилазками за стіни. Герой ще не знає, скільки загадок приховує зовнішній світ.
+					<br> </br>
+					Екранізація манги про пригоди Ерена та його товаришів Shingeki no Kyojin «вибухнула» в аніме-спільноті світу в 2013 році і привернула до себе безліч шанувальників японської анімації. 
+                </div>
+            </div>
+        </div>
+
+        <!-- Demon Slayer -->
+        <div id="demonslayer" class="anime-block">
+            <img src="media/demonslayer.jpg" alt="Demon Slayer" class="anime-img">
+            <div class="anime-info">
+                <div class="title-original">Demon Slayer</div>
+                <div class="title-local">Клинок, що знищує демонів</div>
+                <div class="info">
+                    <ul>
+                        <li>Тип: TV Серіал</li>
+                        <li>Кількість сезонів: 3</li>
+                        <li>Епізоди: 55</li>
+                        <li>Тривалість епізоду: 23 хв.</li>
+                        <li>Публікація: 6 квітня 2019 р.</li>
+                        <li>Жанри:</li>
+						  <ol>
+							<li>Екшн</li>
+							<li>Історичний</li>
+							<li>Фентезі</li>
+						  </ol>
+                        <li>Тематика:</li>
+							<ol>
+							<li>Демони</li>
+							<li>Мечі</li>
+							<li>Пригоди</li>
+						  </ol>
+                    </ul>
+                </div>
+                <button class="show-more" onclick="toggleDescription('description3', this)">Показати більше ▼</button>
+                <div class="description" id="description3">
+                    Ходять чутки, що в місцевих лісах мешкають кровожерливі демони, які живляться людською плоттю. От тільки останні інциденти були так давно, що люди забули про небезпеку дрімучих лісів. Багато мешканців села вважають, що розповіді про демонів — це лише страшилки та легенди.
+					<br> </br>
+					Танджіро Камадо живе в маленькому селі та піклується про свою родину, адже нещодавно зник батько. Юнакові доводиться працювати в шахті та продавати вугілля в місті. Чергова поїздка на ринок не обіцяла неприємностей, але по поверненню додому на хлопця чекало жахливе видовище. Камадо побачив закривавлені тіла родичів, які були розкидані на подвір'ї. Виявилося, що лісові демони напали на село та вирізали всіх мешканців. Дивом вдалося вижити лише його сестричці Незуко, але і з нею були проблеми — істоти перетворили її на демона.
+					<br> </br>
+					Фентезійний світ сповнений моторошних створінь і різних небезпек, з якими доведеться зіткнутися хороброму Танджіро. Якщо дивитися аніме "Kimetsu no Yaiba", можна дізнатися, чи зможе юнак допомогти сестрі позбутися прокляття, а також відшукати вбивць своєї родини.
+                </div>
+            </div>
+        </div>
+
+        <!-- 86 -->
+        <div id="86" class="anime-block">
+            <img src="media/86.png" alt="86" class="anime-img">
+            <div class="anime-info">
+                <div class="title-original">86</div>
+                <div class="title-local">Вісімдесят Шість</div>
+                <div class="info">
+                    <ul>
+                        <li>Тип: TV Серіал</li>
+                        <li>Кількість сезонів: 2</li>
+                        <li>Епізоди: 23</li>
+                        <li>Тривалість епізоду: 23 хв.</li>
+                        <li>Публікація: 11 квітня 2021 р.</li>
+                        <li>Жанри: Екшн, Драма, Наукова фантастика</li>
+                        <li>Тематика: Війна, Політика, Меха</li>
+                    </ul>
+                </div>
+                <button class="show-more" onclick="toggleDescription('description4', this)">Показати більше ▼</button>
+                <div class="description" id="description4">
+                    Ожесточена битва між Імперією та гідним противником — Республікою Сан-Магнолія — триває кілька десятиліть. На полі бою загинуло багато хороших бійців, тому вчені Імперії вирішили створити безпілотні бойові машини. Незабаром аналогічну технологію розробили в Республіці Сан-Магнолія, що дало можливість продовжити війну без жахливих втрат.
+					<br> </br>
+					Серед усіх підрозділів славиться "86", адже саме бійці цього загону беруть участь у найстрашніших сутичках. Одного разу одного з майорів викликали на поле бою, і те, що дівчина побачила, змінило все її уявлення про війну. Виявилося, що бійці, які підключаються через спеціальну систему для керування безпілотними машинами, гинуть. Річ у тім, що уряд довгий час брехав усім військовим, щоб ті, не замислюючись про власне життя, боролися до останньої краплі крові.
+					<br> </br>
+					Після побаченого жаху майор вирішує відкрити очі на те, що відбувається, своїм колегам, і в цьому їй вирішили допомогти відважні хлопці з загону "86". Сміливці вирішили піти проти корумпованої країни, щоб завершити багаторічну війну та врятувати всіх своїх рідних.
+					<br> </br>
+					Масові бої між потужними бойовими машинами можна побачити в аніме "86". Окрім сутичок на полі бою, воїнам доведеться боротися з внутрішніми демонами, а саме зробити складний вибір, від якого залежатиме доля товаришів по службі та близьких. Попереду на всіх чекає велика битва, до якої вправні бійці мають бути готові.
+                </div>
+            </div>
+        </div>
+    </div>
+
+<h2 class="anime-table-title">Рейтинги аніме на популярних платформах</h2>
+
+<table class="anime-table">
+    <tr>
+        <th rowspan="2">Аніме</th>
+        <th colspan="2">Рейтинг</th>
+        <th rowspan="2">Рік виходу</th>
+    </tr>
+    <tr>
+        <th>MyAnimeList</th>
+        <th>AniList</th>
+    </tr>
+    <tr>
+        <td>Tokyo Ghoul</td>
+        <td>7.8</td>
+        <td>76%</td>
+        <td>2014</td>
+    </tr>
+    <tr>
+        <td>Attack on Titan</td>
+        <td>8.5</td>
+        <td>84%</td>
+        <td>2013</td>
+    </tr>
+    <tr>
+        <td>Demon Slayer</td>
+        <td>8.6</td>
+        <td>85%</td>
+        <td>2019</td>
+    </tr>
+    <tr>
+        <td>86</td>
+        <td>8.2</td>
+        <td>80%</td>
+        <td>2021</td>
+    </tr>
+</table>
+
+<section class="link-map">
+  <h2>Детальний опис</h2>
+  <div class="link-map-container">
+    <img src="media/map.png" alt="Касети" class="cassette-bg">
+
+    <a href="tokyo-ghoul.html" class="anime-banner banner1">
+      <img src="media/tokyoghoul.jpg" alt="Tokyo Ghoul">
+    </a>
+
+    <a href="attack-on-titan.html" class="anime-banner banner2">
+      <img src="media/aot.jpg" alt="Attack on Titan">
+    </a>
+
+    <a href="demon-slayer.html" class="anime-banner banner3">
+      <img src="media/demonslayer.jpg" alt="Demon Slayer">
+    </a>
+	
+	<a href="86.html" class="anime-banner banner4">
+      <img src="media/86.png" alt="86">
+    </a>
+  </div>
+</section>
+
+
+    <script>
+        function toggleDescription(id, btn) {
+            var desc = document.getElementById(id);
+            if (desc.style.display === 'none' || desc.style.display === '') {
+                desc.style.display = 'block';
+                btn.textContent = 'Сховати ▲';
+            } else {
+                desc.style.display = 'none';
+                btn.textContent = 'Показати більше ▼';
+            }
+        }
+		
+		function submitQuiz() {
+		  const answers = {
+			q1: 'b',
+			q2: 'b',
+			q3: 'c',
+			q4: 'c',
+			q5: 'b'
+		  };
+		  let score = 0;
+		  for (const q in answers) {
+			const selected = document.querySelector(`input[name=${q}]:checked`);
+			if (selected && selected.value === answers[q]) score++;
+		  }
+		  const resultText = `Твій результат: ${score} з 5`;
+		  document.getElementById('result').innerText = resultText;
+		}
+    </script>
+	
+
+<div class="quiz-container">
+  <h2>Тест: Наскільки добре ти знаєш аніме?</h2>
+  <form id="quizForm">
+    <div class="question">
+      <p>1. Хто є автором манги "Токійський Гуль"?</p>
+      <label><input type="radio" name="q1" value="a"> Хадзіме Ісаяма</label>
+      <label><input type="radio" name="q1" value="b"> Суї Ішіда</label>
+      <label><input type="radio" name="q1" value="c"> Кої Хараукі</label>
+    </div>
+    <div class="question">
+      <p>2. У якому році вийшла аніме-адаптація "Attack on Titan"?</p>
+      <label><input type="radio" name="q2" value="a"> 2012</label>
+      <label><input type="radio" name="q2" value="b"> 2013</label>
+      <label><input type="radio" name="q2" value="c"> 2014</label>
+    </div>
+    <div class="question">
+      <p>3. Яка головна тема в аніме "86"?</p>
+      <label><input type="radio" name="q3" value="a"> Магічні школи</label>
+      <label><input type="radio" name="q3" value="b"> Сімейні стосунки</label>
+      <label><input type="radio" name="q3" value="c"> Війна і дискримінація</label>
+    </div>
+    <div class="question">
+      <p>4. Хто є головним героєм "Клинка, що знищує демонів"?</p>
+      <label><input type="radio" name="q4" value="a"> Кен Канекі</label>
+      <label><input type="radio" name="q4" value="b"> Ерен Єгер</label>
+      <label><input type="radio" name="q4" value="c"> Танджиро Камадо</label>
+    </div>
+    <div class="question">
+      <p>5. Яку нагороду отримало аніме "Клинок, що знищує демонів" у 2020 році?</p>
+      <label><input type="radio" name="q5" value="a"> Anime Expo Grand Prix</label>
+      <label><input type="radio" name="q5" value="b"> Crunchyroll Anime Awards</label>
+      <label><input type="radio" name="q5" value="c"> Japan Culture Prize</label>
+    </div>
+    <button type="button" onclick="submitQuiz()">Перевірити</button>
+    <div class="result" id="result"></div>
+  </form>
+</div>
+
+
+<footer class="site-footer">
+  <p>© 2025 Всі права захищені. Сайт створено у 2025 році. Використання матеріалів дозволене лише з посиланням на джерело.</p>
+</footer>
+
+</body>
+</html>

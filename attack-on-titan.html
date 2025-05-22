@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attack on Titan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .banner {
+      position: relative;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .banner img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px 40px;
+      border-radius: 15px;
+      color: #000;
+      font-size: 2em;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .anime-description {
+      max-width: 1000px;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: justify;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+	.anime-history {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 40px;
+	  margin: 40px 0;
+	}
+
+	.history-left {
+	  width: 50%;
+	  font-size: 1.1em;
+	  line-height: 1.6;
+	}
+
+	.history-right {
+	  width: 50%;
+	  display: flex;
+	  justify-content: center;
+	}
+
+	.history-right img {
+	  width: 30%; 
+	  border-radius: 12px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	
+	.center-block {
+	  display: flex;
+	  max-width: 1000px;
+	  margin: 40px auto;
+	  padding: 20px;
+	  gap: 30px;
+	  background-color: #fff;
+	  border-radius: 15px;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	  align-items: center;
+	}
+
+	.block-image img {
+	  width: 300px;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	}
+
+	.block-text {
+	  flex: 1;
+	  font-size: 1.1em;
+	  line-height: 1.6;
+	  text-align: justify;
+	}
+	
+	.center-block.reverse1 {
+	  flex-direction: row;
+	}
+
+	.center-block {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 30px;
+	  padding: 20px;
+	}
+
+	.center-block.reverse {
+	  flex-direction: row-reverse;
+	}
+
+	.block-text {
+	  flex: 1;
+	  text-align: justify;
+	}
+
+	.block-image img {
+	  width: 100%;
+	  max-width: 300px;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+	
+	.center-text-block {
+	  display: block;
+	  max-width: 1000px;
+	  margin: 40px auto;
+	  padding: 20px;
+	  background-color: #fff;
+	  border-radius: 15px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	}
+
+	.text-content {
+	  margin-bottom: 20px;
+	  text-align: justify;
+	}
+
+	.text-content h3 {
+	  margin-bottom: 15px;
+	}
+
+	.text-content p {
+	  font-size: 1.2em;
+	  line-height: 1.5;
+	}
+
+	.image-content img {
+	  width: 50%; /* Уменьшаем картинку в 2 раза */
+	  display: block;
+	  margin: 0 auto;
+	  border-radius: 8px;
+	}
+
+	.video-block {
+	  max-width: 1000px;
+	  margin: 40px auto;
+	  background-color: #fff;
+	  padding: 20px;
+	  border-radius: 15px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	}
+
+	.video-block video {
+	  width: 100%;
+	  height: auto;
+	  border-radius: 12px;
+	}
+
+	.video-caption {
+	  margin-top: 15px;
+	  font-size: 1.2em;
+	}
+
+	.video-caption a {
+	  color: #007BFF;
+	  text-decoration: none;
+	  font-weight: bold;
+	}
+
+	.video-caption a:hover {
+	  text-decoration: underline;
+	}
+	.site-footer {
+	  background-color: darkgreen;
+	  color: #fff;
+	  text-align: center;
+	  padding: 20px 0;
+	  margin-top: 40px;
+	  font-size: 0.9em;
+	  border-top-left-radius: 12px;
+	  border-top-right-radius: 12px;
+	}
+
+	.site-footer p {
+	  margin: 0;
+	}
+
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <img src="media/aot-banner.png" alt="Attack on Titan">
+    <div class="banner-text">Attack on Titan</div>
+  </div>
+
+  <div class="anime-description">
+     <b>"Атака Титанів"</b> (оригінальна назва: Shingeki no Kyojin) — це японське аніме, створене на основі манги, написаної та ілюстрованої Хадзіме Ісаямою. Манга почала публікуватися у 2009 році в журналі Bessatsu Shōnen Magazine, а її адаптація в аніме була випущена у 2013 році студією Wit Studio та пізніше — студією MAPPA. Тема манги та аніме охоплює масштабні битви, політичні інтриги та питання виживання людства в умовах надзвичайної загрози. 
+  </div>
+
+<div class="center-block">
+  <div class="block-image">
+    <img src="media/aotgif1.gif" alt="Anime Image">
+  </div>
+  <div class="block-text">
+    <h3>Історія створення</h3>
+    <p>Хадзіме Ісаяма був натхнений своєю ідеєю про створення світу, де людство змушене жити за високими стінами, щоб захистити себе від гігантських монстрів, які знищують усе на своєму шляху. У своїх інтерв'ю автор зазначав, що концепція титанів прийшла до нього під впливом різних історій про страшні чудовиська та жахливі катастрофи. Ісаяма використовував свою мангу, щоб підняти питання про страх перед незвіданим і постійний пошук відповідей у жорстокому світі.
+<br> </br>
+	Аніме-адаптація здобула величезну популярність, завдяки своїй драматичній атмосфері, складному світу та багатогранним персонажам. Сюжет охоплює як фізичні, так і емоційні битви, змушуючи глядачів ставити питання про мораль, свободу і вибір.</p>
+  </div>
+</div>
+
+<div class="center-block reverse1">
+  <div class="block-text">
+    <h3>Тематика</h3>
+    <p>"Атака Титанів" досліджує теми війни, існування, самовизначення та боротьби за свободу. Головний конфлікт аніме зводиться до боротьби людства з титанами — загадковими істотами, які знищують людей, і є метафорою непереборних і невідомих загроз, перед якими стоїть людство.
+<br> </br>
+Ключовою темою є концепція ізоляції. Люди, що живуть за стінами, зациклені на своєму маленькому світі, в той час як зовнішній світ залишається невідомим і жахливим. Ця ізоляція є не тільки фізичним обмеженням, а й психологічним. Головні герої, такі як Ерен, Мікаса та Армін, спочатку шукають відповіді на питання, що ховається за стінами, і чи є ще шанс на свободу для їхнього світу.
+<br> </br>
+Також важливою темою є питання моральності. У "Атаці Титанів" немає чіткої межі між добром і злом. Герої змушені приймати складні рішення, які можуть призвести до жахливих наслідків. Зі збільшенням напруги та масштабів війни моральність кожного персонажа починає змінюватися, показуючи, як обставини можуть змінювати людину.</p>
+  </div>
+  <div class="block-image">
+    <img src="media/aotgif2.gif" alt="Anime Image 2">
+  </div>
+</div>
+
+<div class="center-block">
+  <div class="block-image">
+    <img src="media/aotgif3.gif" alt="Anime Image 3">
+  </div>
+  <div class="block-text">
+    <h3>Прихований зміст</h3>
+    <p>"Атака Титанів" не лише про боротьбу з монстрами, але й про складний процес самовизначення. Головні герої змушені прийняти свою роль у цьому безжальному світі і зрозуміти, хто вони насправді. Ерен, зокрема, переживає значне внутрішнє становлення, переходячи від ідеалізму до жорстокої реальності. Протягом всього аніме він ставить під сумнів свої цілі і способи досягнення свободи.
+<br> </br>
+Важливим аспектом є також ідея обмеження свободи та бажання її досягти. Величезні стіни, які оточують людство, символізують як фізичні, так і соціальні обмеження, які накладає суспільство. Лише в боротьбі з титанами герої можуть спробувати досягти свободи, але їхній шлях часто змушує їх стикатися з жорстокими компромісами.
+</p>
+  </div>
+</div>
+
+<div class="center-text-block">
+  <div class="text-content">
+    <h3>Вплив та популярність</h3>
+    <p>"Атака Титанів" стала справжнім культурним феноменом. Аніме привернуло увагу не лише фанатів аніме, але й широку аудиторію завдяки своєму драматизму, непередбачуваним сюжетним поворотам та емоційній глибині. Манга та аніме змусили людей задуматися про філософські питання, що стосуються свободи, війни, моральності та людської природи.
+<br> </br>
+За роки свого існування "Атака Титанів" здобула численні нагороди та стала одним із найвідоміших аніме всіх часів, здобувши величезну популярність на міжнародному рівні. Її вплив простягнувся за межі аніме-середовища, проникнувши в основну поп-культуру. Із завершенням аніме в 2023 році, "Атака Титанів" залишила непідробний слід у серцях мільйонів фанатів по всьому світу.</p>
+  </div>
+  <div class="image-content">
+    <img src="media/aotgif4.gif" alt="Anime Image 4">
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls>
+    <source src="media/video.mp4" type="video/mp4">
+    Ваш браузер не підтримує відео.
+  </video>
+  <p class="video-caption">
+    <a href="https://www.youtube.com/watch?v=1XimbCSB-4k&t=109s&ab_channel=%D0%9A%D0%B8%D0%BD%D0%BE%D0%BF%D0%BE%D0%B8%D1%81%D0%BA" target="_blank">Автор: "Кинопоиск"</a>
+  </p>
+</div>
+
+<footer class="site-footer">
+  <p>© 2025 Всі права захищені. Сайт створено у 2025 році. Використання матеріалів дозволене лише з посиланням на джерело.</p>
+</footer>
+
+</body>
+</html>

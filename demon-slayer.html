@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demon Slayer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .banner {
+      position: relative;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .banner img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+    .banner-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.7);
+      padding: 20px 40px;
+      border-radius: 15px;
+      color: #000;
+      font-size: 2em;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    }
+    .anime-description {
+      max-width: 1000px;
+      margin: 0 auto;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      text-align: justify;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+	.anime-history {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 40px;
+	  margin: 40px 0;
+	}
+
+	.history-left {
+	  width: 50%;
+	  font-size: 1.1em;
+	  line-height: 1.6;
+	}
+
+	.history-right {
+	  width: 50%;
+	  display: flex;
+	  justify-content: center;
+	}
+
+	.history-right img {
+	  width: 30%; 
+	  border-radius: 12px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	}
+	
+	.center-block {
+	  display: flex;
+	  max-width: 1000px;
+	  margin: 40px auto;
+	  padding: 20px;
+	  gap: 30px;
+	  background-color: #fff;
+	  border-radius: 15px;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	  align-items: center;
+	}
+
+	.block-image img {
+	  width: 300px;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	}
+
+	.block-text {
+	  flex: 1;
+	  font-size: 1.1em;
+	  line-height: 1.6;
+	  text-align: justify;
+	}
+	
+	.center-block.reverse1 {
+	  flex-direction: row;
+	}
+
+	.center-block {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 30px;
+	  padding: 20px;
+	}
+
+	.center-block.reverse {
+	  flex-direction: row-reverse;
+	}
+
+	.block-text {
+	  flex: 1;
+	  text-align: justify;
+	}
+
+	.block-image img {
+	  width: 100%;
+	  max-width: 300px;
+	  border-radius: 12px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	}
+	
+	.center-text-block {
+	  display: block;
+	  max-width: 1000px;
+	  margin: 40px auto;
+	  padding: 20px;
+	  background-color: #fff;
+	  border-radius: 15px;
+	  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	  text-align: center;
+	}
+
+	.text-content {
+	  margin-bottom: 20px;
+	  text-align: justify;
+	}
+
+	.text-content h3 {
+	  margin-bottom: 15px;
+	}
+
+	.text-content p {
+	  font-size: 1.2em;
+	  line-height: 1.5;
+	}
+
+	.image-content img {
+	  width: 50%; /* Уменьшаем картинку в 2 раза */
+	  display: block;
+	  margin: 0 auto;
+	  border-radius: 8px;
+	}
+
+	.site-footer {
+	  background-color: darkgreen;
+	  color: #fff;
+	  text-align: center;
+	  padding: 20px 0;
+	  margin-top: 40px;
+	  font-size: 0.9em;
+	  border-top-left-radius: 12px;
+	  border-top-right-radius: 12px;
+	}
+
+	.site-footer p {
+	  margin: 0;
+	}
+
+
+
+  </style>
+</head>
+<body>
+
+  <div class="banner">
+    <img src="media/demonslayer-banner.jpg" alt="Demon Slayer">
+    <div class="banner-text">Demon Slayer</div>
+  </div>
+
+  <div class="anime-description">
+     <b>"Клинок, що знищує демонів"</b> (оригінальна назва: Kimetsu no Yaiba) — це японське аніме, створене за мотивами манги, написаної та ілюстрованої Кої Хараукі. Манга почала публікуватися в 2016 році в журналі Weekly Shōnen Jump, а адаптація в аніме була випущена у 2019 році студією ufotable. Аніме здобуло велику популярність завдяки своєму вражаючому анімаційному стилю, динамічним битвам і глибокій емоційній історії.
+  </div>
+
+<div class="center-block">
+  <div class="block-image">
+    <img src="media/dsgif1.gif" alt="Anime Image">
+  </div>
+  <div class="block-text">
+    <h3>Історія створення</h3>
+    <p>Манга "Клинок, що знищує демонів" була задумана як класична історія про боротьбу між людьми і демонами, але вона швидко отримала нові шари через емоційну глибину персонажів і складну моральну основу. Кої Хараукі почав створювати мангу в період, коли було популярно багато аніме на тему битв із чудовиськами. Він прагнув поєднати класичні елементи екшн-історій з більш глибокими темами, такими як втрата, кохання, сімейні цінності і моральний вибір.
+<br> </br>
+Аніме-адаптація була випущена студією ufotable, що вже мала репутацію за створення аніме з чудовою анімацією. Результат не розчарував: "Клинок, рассекающий демонов" став одним із найбільших хітів 2019 року, здобувши нагороди та привернувши увагу не тільки фанатів аніме, а й широкої аудиторії.</p>
+  </div>
+</div>
+
+<div class="center-block reverse1">
+  <div class="block-text">
+    <h3>Тематика</h3>
+    <p>Клинок, що знищує демонів" зосереджений на темах боротьби, самопожертви, втрати і відновлення. Головний герой, Танджиро Камадо, намагається помститися демонам, які вбили його родину, і одночасно врятувати свою сестру Незуко, яка була перетворена на демона. Ця історія про відвагу, стійкість і безмежну любов до родини проходить через усі сезони аніме.
+<br> </br>
+Основною темою є боротьба між добром і злом, де навіть демони, які є антагоністами, мають свої історії і мотиви. У "Клинку" розкривається ідея того, що зло може бути не таким однозначним, а кожна істота має свою мотивацію та переживання.
+<br> </br>
+Іншою важливою темою є самовдосконалення і боротьба з власними обмеженнями. Танджиро та інші персонажі не просто фізично б’ються з демонами, але й проходять внутрішній шлях, щоб стати сильнішими і досягти своїх цілей. Аніме глибоко вивчає теми стійкості, відновлення після травм і нестримної боротьби з обставинами.</p>
+  </div>
+  <div class="block-image">
+    <img src="media/dsgif2.gif" alt="Anime Image 2">
+  </div>
+</div>
+
+<div class="center-block">
+  <div class="block-image">
+    <img src="media/dsgif3.gif" alt="Anime Image 3">
+  </div>
+  <div class="block-text">
+    <h3>Прихований зміст</h3>
+    <p>За яскравими битвами та чудовими сценами аніме ховається глибока метафора боротьби з внутрішніми демонами. Танджиро, хоч і бореться з реальними демонами, часто стикається з власними сумнівами і проблемами. Його боротьба стає не тільки зовнішньою, але й внутрішньою, де він намагається знайти свій шлях у світі, що змінився. Протягом серії показано, як особисті втрати і випробування можуть робити людину сильнішою, але й можуть завести на небезпечні шляхи, де важко зробити правильний вибір.
+<br> </br>
+	Тема родини та відданості також є однією з головних у "Клинку". Танджиро зробить усе, щоб захистити свою сестру, і ця відданість є його головним двигуном. Однак навіть його прагнення не може запобігти жорстокій реальності, де він стикається з непростими рішеннями, що можуть вплинути на життя тих, кого він любить.
+</p>
+  </div>
+</div>
+
+<div class="center-text-block">
+  <div class="text-content">
+    <h3>Вплив та популярність</h3>
+    <p>Стиль анімації, насичені емоції та глибокі персонажі зробили "Клинок, що знищує демонів" явищем в аніме-середовищі, що принесло серії не лише комерційний успіх, а й численні нагороди, серед яких найвідоміша — нагорода Crunchyroll Anime Awards 2020 за "Найкраще аніме року".
+<br> </br>
+Аніме привернуло величезну кількість фанатів по всьому світу завдяки своїй емоційній глибині, чудовій анімації та захоплюючому сюжету, і з моменту виходу продовжує утримувати популярність серед шанувальників.
+<br> </br>
+"Клинок, що знищує демонів" став не лише культовим аніме, але й вплинув на глобальну аніме-культуру, забезпечивши собі місце серед найкращих серіалів за останнє десятиліття.</p>
+  </div>
+  <div class="image-content">
+    <img src="media/dsgif4.gif" alt="Anime Image 4">
+  </div>
+</div>
+
+
+<footer class="site-footer">
+  <p>© 2025 Всі права захищені. Сайт створено у 2025 році. Використання матеріалів дозволене лише з посиланням на джерело.</p>
+</footer>
+
+</body>
+</html>
